@@ -19,12 +19,7 @@ public class UsuarioController {
 
     @PostMapping
     public ResponseEntity<Usuario> create(@RequestBody Usuario usuario) {
-        Usuario user = Usuario.builder()
-                .usuario(usuario.getUsuario())
-                .senha(usuario.getSenha())
-                .id(usuario.getId())
-                .build();
-        usuarioProducer.sendMessage(user);
-        return ResponseEntity.status(HttpStatus.CREATED).body(user);
+        usuarioProducer.sendMessage(usuario);
+        return ResponseEntity.status(HttpStatus.CREATED).body(usuario);
     }
 }
